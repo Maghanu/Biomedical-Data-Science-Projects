@@ -1,0 +1,43 @@
+# Raw, potentially identifiable, or locally generated data
+data/
+output/
+node_modules/
+dist/
+*.Rdata
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.sam
+*.vcf
+*.vcf.gz
+
+# Local environments and generated output
+.venv/
+venv/
+__pycache__/
+.Rproj.user/
+renv/library/
+*.html
+.DS_Store
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Personal YouTube exports and generated report assets
+cookies.txt
+history.html
+youtube_video_ids.json
+thumbnail.jpg
+Project.pdf
+NotoSans*.ttf

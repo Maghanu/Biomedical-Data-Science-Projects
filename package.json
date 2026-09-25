@@ -1,0 +1,8 @@
+{
+  "name": "biomedical-data-science-projects",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix projects/clinical-pharmacology/plasma-concentration-visualization run dev -- --host 0.0.0.0",
+    "build": "npm --prefix projects/clinical-pharmacology/plasma-concentration-visualization run build"
+  }
+}
