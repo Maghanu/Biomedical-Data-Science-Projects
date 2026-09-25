@@ -1,7 +1,7 @@
 # Biomedical Data Science Projects
 
-An online portfolio of biomedical data-analysis projects from my studies,
-research work and personal work. Projects are organised by subject.
+An online portfolio of biomedical data-analysis projects of my studies,
+research and personal interests. Projects are organised by subject.
 
 ## Featured projects
 
