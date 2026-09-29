@@ -1,4 +1,0 @@
-# required pip downloadable libraries:
-
-- requests
-- fpdf

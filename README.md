@@ -1,119 +1,53 @@
-# Biomedical Data Science Projects
+# Clinical Pharmacology
 
-An online portfolio of biomedical data-analysis projects of my studies,
-research and personal interests. Projects are organised by subject.
+This repository contains clinical pharmacology analyses and tools focused on
+pharmacokinetics, pharmacodynamics, ECG measurements, and exposure-response
+relationships.
 
-## Featured projects
+## Biological overview
 
-Start here if you are reviewing this repository:
+Metoprolol is a beta-1 adrenergic receptor blocker. By reducing the effects of
+sympathetic stimulation on the heart, it can lower heart rate and blood
+pressure. The amount of metoprolol in the body depends partly on metabolism
+by the CYP2D6 enzyme, so differences in CYP2D6 activity can contribute to
+variation in drug exposure and response.
 
-| Project | Why it is useful | Stack |
+These analyses connect that pathway to clinical measurements: they examine
+metoprolol exposure, blood-pressure response, and QT intervals on the ECG.
+Because the QT interval varies with heart rate, the primary analysis uses
+QTcF, a heart-rate-corrected measure, when comparing metoprolol with placebo.
+The concentration visualization provides a separate, interactive illustration
+of how repeated dosing and altered doses can affect modeled plasma levels.
+
+## Projects
+
+| Project | Focus | Technology |
 | --- | --- | --- |
-| [Plasma concentration visualization](projects/clinical-pharmacology/plasma-concentration-visualization/README.md) | Interactive exploration of repeated dosing, missed doses, and double doses | React, JSX, Recharts, Vite |
-| [Metoprolol analysis](projects/clinical-pharmacology/metoprolol-analysis/README.md) | Primary QTcF analysis with related PK/PD subanalyses | R, mixed-effects models, ECG and exposure-response methods |
-| [YouTube Video Analysis](projects/youtube-video-analysis/README.md) | Extract and analyse viewing-history data to generate a PDF report | Python, Google API, FPDF |
-| [B3Z T-cell activation configurator](projects/immunology/t-cell-activation/README.md) | Configure a 96-well assay and generate reproducible R analysis code | React, JSX, R, plate assays |
-| [RiboGreen assay configurator](projects/immunology/RiboGreen-analysis/README.md) | Configure RNA quantification and encapsulation-efficiency analysis | React, JSX, R, fluorescence assays |
+| [Metoprolol analysis](clinical-pharmacology/metoprolol-analysis/README.md) | QTcF, CYP2D6-stratified PK/PD, and blood-pressure analyses | R |
+| [Plasma concentration visualization](clinical-pharmacology/plasma-concentration-visualization/README.md) | Interactive repeated-dose profiles, including missed and doubled doses | React, Recharts, Vite |
 
-The featured order reflects the intended review path: interactive work first,
-then a complete statistical analysis, then a focused clinical interpretation.
-
-## Project map
-
-```mermaid
-flowchart TD
-    A[Biomedical data science] --> B[Clinical pharmacology]
-    A --> C[Genomics and sequencing]
-    A --> D[Biomedical data science tools]
-    A --> E[Immunology]
-
-    B --> B1[Plasma concentration visualization]
-    B --> B2[Metoprolol analysis]
-
-    B2 --> B2a[QT correction]
-    B2 --> B2b[CYP2D6 PK/PD]
-    B2 --> B2c[Blood pressure and exposure]
-
-    C --> C1[Quality control]
-    C --> C2[Differential expression]
-    C --> C3[Pathway analysis]
-
-    D --> D1[YouTube history analysis]
-    D --> D2[Python data processing]
-    D --> D3[Reproducible reports]
-
-    E --> E1[B3Z T-cell activation]
-    E1 --> E2[96-well plate layout]
-    E1 --> E3[Generated R analysis]
-    E --> E4[RiboGreen RNA quantification]
-    E4 --> E5[Calibration curves]
-    E4 --> E6[Encapsulation efficiency]
-```
-
-## Explore the projects
-
-### Clinical pharmacology
-
-Projects using R and React for clinical pharmacology, pharmacokinetics,
-pharmacodynamics, ECG measurements, and exposure-response analysis.
-
-- [Clinical pharmacology projects](projects/clinical-pharmacology/README.md)
-
-### Genomics and sequencing
-
-The sequencing section is ready for future R and Bioconductor projects.
-
-- [Genomics and sequencing projects](projects/genomics-sequencing/README.md)
-
-### Biomedical data science tools
-
-Projects using Python for data processing, API integration, testing, and
-reproducible report generation.
-
-- [YouTube video analysis](projects/youtube-video-analysis/README.md)
-
-### Immunology
-
-Interactive tools for immune-cell assays and reproducible plate-based analysis.
-
-- [B3Z T-cell activation configurator](projects/immunology/t-cell-activation/README.md)
-- [RiboGreen assay configurator](projects/immunology/RiboGreen-analysis/README.md)
+See the [clinical pharmacology overview](clinical-pharmacology/README.md) for
+project details and analysis notes.
 
 ## Repository structure
 
 ```text
-projects/
-├── clinical-pharmacology/
+clinical-pharmacology/
+├── README.md
+├── metoprolol-analysis/
 │   ├── README.md
-│   ├── plasma-concentration-visualization/
-│   └── metoprolol-analysis/
-│       ├── README.md
-│       ├── metoprolol.r
-│       ├── qt-correction/
-│       ├── cyp2d6-pkpd/
-│       └── systolic-bp-concentration/
-├── genomics-sequencing/
-│   └── README.md
-├── immunology/
-│   ├── README.md
-│   ├── t-cell-activation/
-│   │   ├── README.md
-│   │   └── T-cell-activation.jsx
-│   └── RiboGreen-analysis/
-│       ├── README.md
-│       └── RiboGreen-assay-script.jsx
-└── youtube-video-analysis/
+│   ├── metoprolol.r
+│   ├── qt-correction/
+│   ├── cyp2d6-pkpd/
+│   └── systolic-bp-concentration/
+└── plasma-concentration-visualization/
     ├── README.md
-    ├── project.py
-    ├── jsonify.py
-    └── test_project.py
+    ├── package.json
+    └── src/
 ```
 
-Each project should include a short overview, the research or analytical
-question, methods, a reproducible entry point, and a brief summary of results.
-Sensitive or identifying data should never be committed to this repository.
+## Data requirements
 
-## Status
-
-This portfolio is being built incrementally as analyses are cleaned up and
-made suitable for public release.
+The R analyses require `AnalysisSet.Rdata` in the working directory. This
+dataset and generated output are intentionally excluded because the data may
+contain personal information.
